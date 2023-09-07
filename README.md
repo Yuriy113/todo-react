@@ -1,1 +1,1 @@
-link to deploy: https://github.com/Yuriy113/todo-react.git
+link to deploy: https://yuriy113.github.io/todo-react/
