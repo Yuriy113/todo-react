@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Todo } from './Todo';
-import { TodoForm } from './TodoForm';
+import { Todo } from './Todo/Todo';
+import { TodoForm } from './TodoForm/TodoForm';
 import { v4 as uuidv4 } from 'uuid';
 import { EditTodoForm } from './EditTodoForm';
 import { Task } from '../types';
@@ -70,6 +70,10 @@ export const TodoWrapper = () => {
       <div className="todo-wrapper">
         <h1 className="app-title">todos</h1>
         <TodoForm addTodo={addTodo} />
+        <ButtonGroup setAppState={setAppState} />
+        <button className="state-btn" onClick={deleteCompleted}>
+          Clear completed
+        </button>
         {filteredTasks.map((task) =>
           task.isEditing ? (
             <EditTodoForm key={task.id} editTodo={editTask} task={task} />
@@ -83,10 +87,6 @@ export const TodoWrapper = () => {
             />
           ),
         )}
-        <ButtonGroup setAppState={setAppState} />
-        <button className="state-btn" onClick={deleteCompleted}>
-          Clear completed
-        </button>
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { TodoFormProps } from '../types';
+import { TodoFormProps } from '../../types';
 
-export const TodoForm = ({ addTodo }: TodoFormProps) => {
+export const TodoForm: React.FC<TodoFormProps> = ({ addTodo }: TodoFormProps) => {
   const [value, setValue] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {

@@ -1,18 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ButtonsProps } from '../types';
 
+const Button = ({
+  text,
+  active,
+  onClick,
+}: {
+  text: string;
+  active: boolean;
+  onClick: () => void;
+}) => (
+  <button className={`state-btn ${active ? 'active' : ''}`} onClick={onClick}>
+    {text}
+  </button>
+);
+
 const ButtonGroup = ({ setAppState }: ButtonsProps): React.JSX.Element => {
+  const [activeButton, setActiveButton] = useState('all');
+
+  const handleButtonClick = (state: string) => {
+    setAppState(state);
+    setActiveButton(state);
+  };
+
   return (
     <div className="button-group">
-      <button className="state-btn" onClick={() => setAppState('all')}>
-        All
-      </button>
-      <button className="state-btn" onClick={() => setAppState('active')}>
-        Active
-      </button>
-      <button className="state-btn" onClick={() => setAppState('completed')}>
-        Completed
-      </button>
+      {['all', 'active', 'completed'].map((state) => (
+        <Button
+          key={state}
+          text={state.charAt(0).toUpperCase() + state.slice(1)}
+          active={activeButton === state}
+          onClick={() => handleButtonClick(state)}
+        />
+      ))}
     </div>
   );
 };
