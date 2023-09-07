@@ -10,6 +10,7 @@ export type addTask = (task: string) => void;
 export type deleteTask = (id: string) => void;
 export type toggleTask = (id: string) => void;
 export type editTodo = (id: string) => void;
+export type setAppState = (value: React.SetStateAction<string>) => void;
 
 export type EditTodoFormProps = {
   task: Task;
@@ -25,4 +26,8 @@ export type TodoProps = {
   deleteTodo: deleteTask;
   editTodo: editTodo;
   toggleComplete: toggleTask;
+};
+
+export type ButtonsProps = {
+  setAppState: setAppState;
 };

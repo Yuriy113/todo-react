@@ -12,13 +12,13 @@ export const TodoForm = ({ addTodo }: TodoFormProps) => {
     }
   };
   return (
-    <form onSubmit={handleSubmit} className="TodoForm">
+    <form onSubmit={handleSubmit} className="todo-form">
       <input
         type="text"
         value={value}
         onChange={(e) => setValue(e.target.value)}
         className="todo-input"
-        placeholder="What is the task today?"
+        placeholder="What needs to be done?"
       />
       <button type="submit" className="todo-btn">
         Add Task

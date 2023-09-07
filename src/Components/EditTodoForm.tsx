@@ -19,7 +19,7 @@ export const EditTodoForm = ({ editTodo, task }: EditTodoFormProps): React.JSX.E
         placeholder="Update task"
       />
       <button type="submit" className="todo-btn">
-        Add Task
+        Submit
       </button>
     </form>
   );
